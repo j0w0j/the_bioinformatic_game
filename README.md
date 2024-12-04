@@ -8,9 +8,11 @@
 <hr style = "border: 3px solid hotpink;
   border-radius: 5px;"></hr>
 
-<p style= "color: deeppink; font-size:25px; font-family: Fantasy; font-weight: normal; font-style: bold;"> Author, Date and Version: </p>
+<p style= "color: deeppink; font-size:25px; font-family: Fantasy; font-weight: normal; font-style: bold;"> Author, Date, Sources and Version: </p>
 <p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Author: Johanna Veenstra (with some help with ai...and Duncan....)</p>
 <p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Date Created: 25-11-2024</p>
+<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Art is made by Johanna Veenstra</p>
+<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Music is made by Johanna Veenstra with the help of https://musiclab.chromeexperiments.com/</p>
 <p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Version: 1.0.0</p>
 
 <hr style = "border: 3px solid hotpink;
