@@ -5,6 +5,7 @@ Version: 1.0.0
 Disclaimer: I wrote this code myself but I used AI for some parts of the code and blueprint of the program.
 The other info I got from https://www.pygame.org/docs/
 """
+
 import pygame
 import sys
 import random
@@ -105,10 +106,13 @@ speed = 6
 
 font = pygame.font.Font(None, 36)
 
+
 class Coordinate:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
+
 def coordinatemaker(num_coords):
     """Generates a list of unique random coordinates as tuples.
     :param num_coords: amount of coordinates to generate.
@@ -125,18 +129,19 @@ def coordinatemaker(num_coords):
         if not isdupe:
             coords.append(new_coord)
 
-
-
     return coords
+
 
 def coordinate_checker(cone, ctwo):
     """
     Checks if the coordinates are not looping over eachother
-    :param coords:
-    :return:
+    :param cone: coordinate 1
+    :param ctwo: coordinate 2
+    :return distance_between: the distance between the two coordinates
     """
-    distance_between = math.sqrt((cone.x-ctwo.x)**2+(cone.y-ctwo.y)**2)
+    distance_between = math.sqrt((cone.x - ctwo.x) ** 2 + (cone.y - ctwo.y) ** 2)
     return distance_between
+
 
 # Password function
 def check_password():
@@ -240,10 +245,21 @@ def mini_game():
     guanine_img = pygame.image.load("guanine.png")
 
     # Create rectangles for each pair
-    alanine_rects = [alanine_img.get_rect(topleft=(pos.x,pos.y)) for pos in positions[:double_pairs]]
-    thymine_rects = [thymine_img.get_rect(topleft=(pos.x,pos.y)) for pos in positions[double_pairs:amount_bases // 2]]
-    cytosine_rects = [cytosine_img.get_rect(topleft=(pos.x,pos.y)) for pos in positions[amount_bases // 2: double_pairs * 3 ]]
-    guanine_rects = [guanine_img.get_rect(topleft=(pos.x,pos.y)) for pos in positions[double_pairs* 3 : amount_bases]]
+    alanine_rects = [
+        alanine_img.get_rect(topleft=(pos.x, pos.y)) for pos in positions[:double_pairs]
+    ]
+    thymine_rects = [
+        thymine_img.get_rect(topleft=(pos.x, pos.y))
+        for pos in positions[double_pairs : amount_bases // 2]
+    ]
+    cytosine_rects = [
+        cytosine_img.get_rect(topleft=(pos.x, pos.y))
+        for pos in positions[amount_bases // 2 : double_pairs * 3]
+    ]
+    guanine_rects = [
+        guanine_img.get_rect(topleft=(pos.x, pos.y))
+        for pos in positions[double_pairs * 3 : amount_bases]
+    ]
 
     # Circle sets and their rectangles
     # This is a list comprehesion in a list comprehension "nested"
