@@ -11,6 +11,7 @@ import sys
 import random
 import tetrismini  # import the python file off the tetris mini game I got online
 import math
+from pygame import mixer
 
 
 # set up display
@@ -26,6 +27,11 @@ pygame.init()
 # load the background
 background = pygame.image.load("background.png")
 background = pygame.transform.scale(background, (1000, 1000))
+
+# loud in the music
+mixer.init()
+mixer.music.load("musika.wav")
+mixer.music.play(loops=-1)
 
 # Get the dimensions of the screen and the background image
 screen_width, screen_height = SCREEN.get_size()
@@ -230,8 +236,6 @@ def mini_game():
     # Define colors
     black = (0, 0, 0)
     green = (0, 255, 0)
-    red = (210, 1, 3)
-    pink = (255, 195, 252)
 
     # Generate positions for 12 items (6 pairs)
     amount_bases = 12
