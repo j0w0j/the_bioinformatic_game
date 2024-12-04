@@ -5,7 +5,7 @@ Version: 1.0.0
 Disclaimer: I wrote this code myself but I used AI for some parts of the code and blueprint of the program.
 The other info I got from https://www.pygame.org/docs/
 """
-
+# comment
 import pygame
 import sys
 import random
