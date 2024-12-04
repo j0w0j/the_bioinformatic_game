@@ -306,10 +306,9 @@ def mini_game():
                             (clicked_positions[0], clicked_positions[1], green)
                         )
                     else:
-                        lines.append((clicked_positions[0], clicked_positions[1], red))
                         display_message(
                             "Wrong connection!",
-                            (255, 38, 178),
+                            (255, 0, 0),
                             screen_width // 2 - 75,
                             screen_height // 2 + 20,
                         )

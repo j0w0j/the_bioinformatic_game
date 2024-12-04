@@ -9,7 +9,7 @@
   border-radius: 5px;"></hr>
 
 <p style= "color: deeppink; font-size:25px; font-family: Fantasy; font-weight: normal; font-style: bold;"> Author, Date and Version: </p>
-<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Author: Johanna Veenstra (with some help with ai...)</p>
+<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Author: Johanna Veenstra (with some help with ai...and Duncan....)</p>
 <p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Date Created: 25-11-2024</p>
 <p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Version: 1.0.0</p>
 
