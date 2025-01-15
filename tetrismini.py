@@ -7,8 +7,7 @@
 
 from collections import OrderedDict
 import random
-import sys
-from idlelib.run import quitting
+
 
 import game
 
@@ -35,7 +34,8 @@ def remove_empty_columns(arr, _x_offset=0, _keep_counting=True):
                 _x_offset += 1
             # Remove the current column and try again.
             arr, _x_offset = remove_empty_columns(
-                np.delete(arr, colid, 1), _x_offset, _keep_counting)
+                np.delete(arr, colid, 1), _x_offset, _keep_counting
+            )
             break
         else:
             _keep_counting = False
@@ -69,13 +69,15 @@ class Block(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         # Get a random color.
-        self.color = random.choice((
-            (255, 80, 194),
-            (255, 32, 174),
-            (173, 0, 144),
-            (189, 27, 226),
-            (255, 1, 86)
-        ))
+        self.color = random.choice(
+            (
+                (255, 80, 194),
+                (255, 32, 174),
+                (173, 0, 144),
+                (189, 27, 226),
+                (255, 1, 86),
+            )
+        )
         self.current = True
         self.struct = np.array(self.struct)
         # Initial random rotation and flip.
@@ -101,8 +103,12 @@ class Block(pygame.sprite.Sprite):
                     pygame.draw.rect(
                         self.image,
                         self.color,
-                        Rect(x*TILE_SIZE + 1, y*TILE_SIZE + 1,
-                            TILE_SIZE - 2, TILE_SIZE - 2)
+                        Rect(
+                            x * TILE_SIZE + 1,
+                            y * TILE_SIZE + 1,
+                            TILE_SIZE - 2,
+                            TILE_SIZE - 2,
+                        ),
                     )
         self._create_mask()
 
@@ -131,7 +137,7 @@ class Block(pygame.sprite.Sprite):
     @x.setter
     def x(self, value):
         self._x = value
-        self.rect.left = value*TILE_SIZE
+        self.rect.left = value * TILE_SIZE
 
     @property
     def y(self):
@@ -140,7 +146,7 @@ class Block(pygame.sprite.Sprite):
     @y.setter
     def y(self, value):
         self._y = value
-        self.rect.top = value*TILE_SIZE
+        self.rect.top = value * TILE_SIZE
 
     def move_left(self, group):
         self.x -= 1
@@ -192,26 +198,15 @@ class Block(pygame.sprite.Sprite):
 
 
 class SquareBlock(Block):
-    struct = (
-        (1, 1),
-        (1, 1)
-    )
+    struct = ((1, 1), (1, 1))
 
 
 class TBlock(Block):
-    struct = (
-        (1, 1, 1),
-        (0, 1, 0)
-    )
+    struct = ((1, 1, 1), (0, 1, 0))
 
 
 class LineBlock(Block):
-    struct = (
-        (1,),
-        (1,),
-        (1,),
-        (1,)
-    )
+    struct = ((1,), (1,), (1,), (1,))
 
 
 class LBlock(Block):
@@ -234,8 +229,7 @@ class BlocksGroup(pygame.sprite.OrderedUpdates):
 
     @staticmethod
     def get_random_block():
-        return random.choice(
-            (SquareBlock, TBlock, LineBlock, LBlock, ZBlock))()
+        return random.choice((SquareBlock, TBlock, LineBlock, LBlock, ZBlock))()
 
     def __init__(self, *args, **kwargs):
         super().__init__(self, *args, **kwargs)
@@ -259,8 +253,7 @@ class BlocksGroup(pygame.sprite.OrderedUpdates):
                 self.score += 5
                 # Get the blocks affected by the line deletion and
                 # remove duplicates.
-                affected_blocks = list(
-                    OrderedDict.fromkeys(self.grid[-1 - i]))
+                affected_blocks = list(OrderedDict.fromkeys(self.grid[-1 - i]))
 
                 for block, y_offset in affected_blocks:
                     # Remove the block tiles which belong to the
@@ -269,8 +262,7 @@ class BlocksGroup(pygame.sprite.OrderedUpdates):
                     if block.struct.any():
                         # Once removed, check if we have empty columns
                         # since they need to be dropped.
-                        block.struct, x_offset = \
-                            remove_empty_columns(block.struct)
+                        block.struct, x_offset = remove_empty_columns(block.struct)
                         # Compensate the space gone with the columns to
                         # keep the block's original position.
                         block.x += x_offset
@@ -347,7 +339,7 @@ class BlocksGroup(pygame.sprite.OrderedUpdates):
         action = {
             pygame.K_DOWN: self.current_block.move_down,
             pygame.K_LEFT: self.current_block.move_left,
-            pygame.K_RIGHT: self.current_block.move_right
+            pygame.K_RIGHT: self.current_block.move_right,
         }
         try:
             # Each function requires the group as the first argument
@@ -383,19 +375,15 @@ def draw_grid(background):
     # Vertical lines.
     for i in range(11):
         x = TILE_SIZE * i
-        pygame.draw.line(
-            background, grid_color, (x, 0), (x, GRID_HEIGHT)
-        )
+        pygame.draw.line(background, grid_color, (x, 0), (x, GRID_HEIGHT))
     # Horizontal liens.
     for i in range(21):
         y = TILE_SIZE * i
-        pygame.draw.line(
-            background, grid_color, (0, y), (GRID_WIDTH, y)
-        )
+        pygame.draw.line(background, grid_color, (0, y), (GRID_WIDTH, y))
 
 
 def draw_centered_surface(screen, surface, y):
-    screen.blit(surface, (400 - surface.get_width()//2, y))
+    screen.blit(surface, (400 - surface.get_width() // 2, y))
 
 
 def main():
@@ -421,11 +409,9 @@ def main():
         # If the font file is not available, the default will be used.
         font = pygame.font.Font(pygame.font.get_default_font(), 20)
         font_big = pygame.font.Font(pygame.font.get_default_font(), 110)
-    next_block_text = font.render(
-        "Next figure:", True, (255, 255, 255), bgcolor)
-    score_msg_text = font.render(
-        "Score:", True, (255, 255, 255), bgcolor)
-    paused_text = font_big.render("PAUSED",True,(255, 255, 255), bgcolor )
+    next_block_text = font.render("Next figure:", True, (255, 255, 255), bgcolor)
+    score_msg_text = font.render("Score:", True, (255, 255, 255), bgcolor)
+    paused_text = font_big.render("PAUSED", True, (255, 255, 255), bgcolor)
 
     # Event constants.
     MOVEMENT_KEYS = pygame.K_LEFT, pygame.K_RIGHT, pygame.K_DOWN
@@ -449,7 +435,6 @@ def main():
                         blocks.rotate_current_block()
                 if event.key == pygame.K_p:
                     paused = not paused
-
 
             # Stop moving blocks if the game is over or paused.
             if paused:
@@ -477,12 +462,15 @@ def main():
         draw_centered_surface(screen, next_block_text, 50)
         draw_centered_surface(screen, blocks.next_block.image, 100)
         draw_centered_surface(screen, score_msg_text, 240)
-        score_text = font.render(
-            str(blocks.score), True, (255, 255, 255), bgcolor)
+        score_text = font.render(str(blocks.score), True, (255, 255, 255), bgcolor)
         draw_centered_surface(screen, score_text, 270)
         if game_over:
-            game.display_message("GAME OVER!", (228, 8, 10), WINDOW_WIDTH // 2 - 75,
-                                        WINDOW_HEIGHT // 2 + 20)
+            game.display_message(
+                "GAME OVER!",
+                (228, 8, 10),
+                WINDOW_WIDTH // 2 - 75,
+                WINDOW_HEIGHT // 2 + 20,
+            )
         if paused:
             draw_centered_surface(screen, paused_text, 360)
         # Update.

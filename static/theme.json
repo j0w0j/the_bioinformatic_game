@@ -1,0 +1,21 @@
+{
+    "button": {
+        "colours": {
+            "normal_bg": "#f075d1",
+            "hovered_bg": "#ff99e6",
+            "active_bg": "#ff66cc",
+            "normal_border": "#ffffff",
+             "hovered_border": "#FE03B3",
+             "disabled_border": "#808080",
+             "selected_border": "#8080B0",
+             "active_border": "#8080B0",
+            "normal_text": "#ffffff",
+            "hovered_text": "#FE03B3",
+            "active_text": "#ff0000"
+        },
+        "font": {
+            "name": "Impact",
+            "size": 25
+        }
+    }
+}

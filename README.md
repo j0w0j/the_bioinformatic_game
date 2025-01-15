@@ -4,7 +4,7 @@
 <div style="background-color: pink; padding: 5px 40px 20px 50px; display: inline-block; border-radius: 30px">
 <hr style = "border: 3px solid hotpink;
   border-radius: 5px;"></hr>
-<p style="color: deeppink; font-size:50px; font-family: Fantasy; text-align: center"> Game.py</p>
+<p style="color: deeppink; font-size:50px; font-family: Fantasy; text-align: center"> The Bio-informatic game</p>
 <hr style = "border: 3px solid hotpink;
   border-radius: 5px;"></hr>
 
@@ -13,7 +13,7 @@
 <p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Date Created: 25-11-2024</p>
 <p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Art is made by Johanna Veenstra</p>
 <p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Music is made by Johanna Veenstra with the help of https://musiclab.chromeexperiments.com/</p>
-<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Version: 1.0.0</p>
+<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Version: 2.0.0</p>
 
 <hr style = "border: 3px solid hotpink;
   border-radius: 5px;"></hr>
@@ -35,7 +35,7 @@ to download the right files. All the imports are given in the requirements.txt f
   border-radius: 5px;"></hr>
 
 <p style= "color: deeppink; font-size:25px; font-family: Fantasy; font-weight: normal; font-style: bold;"> Usage: </p>
-<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Simply press RUN:, the game will run. 
+<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> Simply press RUN (startgame.py):, the game will run. 
 For the main game you use wasd to move, you can also interact with the icons with the left mouse-button. In the tetris game you use
 the arrows to move the block, the other minigame is with the left mouse-button again.</p>
 
@@ -53,7 +53,7 @@ this game, please contact:</p>
   border-radius: 5px;"></hr>
 
 <p style= "color: deeppink; font-size:25px; font-family: Fantasy; font-weight: normal; font-style: bold;"> Aknowledgement: </p>
-<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> I want to thank AI for
+<p style= "color: deeppink; font-size:18px; font-family: Fantasy; font-weight: normal;"> I want to thank Duncan and AI for
 helping me with this code, without them (it?) I would've cried. I copy pasted most of the tetris game from: </p>
 
 

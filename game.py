@@ -1,7 +1,7 @@
 """
 Author: Johanna Veenstra
 Created: 25-11-2024
-Version: 1.0.0
+Version: 2.0.0
 Disclaimer: I wrote this code myself but I used AI for some parts of the code and blueprint of the program.
 The other info I got from https://www.pygame.org/docs/
 """
@@ -18,19 +18,20 @@ from pygame import mixer
 SCREEN = pygame.display.set_mode([1000, 750])
 
 # load the icon
-icon = pygame.image.load("icon.png")
+icon = pygame.image.load("static/images/icon.png")
 pygame.display.set_icon(icon)
 pygame.display.set_caption("The Bio-Informatic")
 
 pygame.init()
 
 # load the background
-background = pygame.image.load("background.png")
+background = pygame.image.load("static/images/background.png")
 background = pygame.transform.scale(background, (1000, 1000))
+
 
 # loud in the music
 mixer.init()
-mixer.music.load("musika.wav")
+mixer.music.load("static/sound/musika.wav")
 mixer.music.play(loops=-1)
 
 # Get the dimensions of the screen and the background image
@@ -42,7 +43,7 @@ background_x = (screen_width - background_width) // 2
 background_y = (screen_height - background_height) // 2
 
 # load the website bc it doenst work otherwise omg
-website = pygame.image.load("website.png")
+website = pygame.image.load("static/images/website.png")
 website = pygame.transform.scale(website, (1000, 800))
 website_rect = website.get_rect()
 website_y = (screen_height - website_rect.height) // 2
@@ -51,7 +52,7 @@ website_y += 20
 website_rect.topleft = [website_x, website_y]
 
 # Load the obstacle image
-obstacle = pygame.image.load("obstacle.png")
+obstacle = pygame.image.load("static/images/obstacle.png")
 obstacle = pygame.transform.scale(obstacle, (400, 400))
 obstacle_rect = obstacle.get_rect()
 # Position of the obstacle
@@ -62,7 +63,7 @@ obstacle_y += 240
 obstacle_rect.topleft = [obstacle_x, obstacle_y]
 
 # Load "hint" poster image
-poster = pygame.image.load("poster.png")
+poster = pygame.image.load("static/images/poster.png")
 poster = pygame.transform.scale(poster, (200, 200))
 poster_rect = poster.get_rect()
 poster_y = (screen_height - poster_rect.height) // 2
@@ -71,7 +72,7 @@ poster_y += -220
 poster_rect.topleft = [poster_x, poster_y]
 
 # Load the virus icon image
-virus = pygame.image.load("virus.png")
+virus = pygame.image.load("static/images/virus.png")
 virus = pygame.transform.scale(virus, (50, 50))
 virus_rect = virus.get_rect()
 # Position of the virus icon
@@ -80,7 +81,7 @@ virus_x = 230
 virus_y += -220
 virus_rect.topleft = [virus_x, virus_y]
 
-info = pygame.image.load("info.png")
+info = pygame.image.load("static/images/info.png")
 info = pygame.transform.scale(info, (50, 50))
 info_rect = info.get_rect()
 info_y = (screen_height - info_rect.height) // 2
@@ -89,7 +90,7 @@ info_y += -220
 info_rect.topleft = [info_x, info_y]
 
 # this is all the same so not gonna repeat myself lol.
-tetrisvirus = pygame.image.load("tetrisvirus.png")
+tetrisvirus = pygame.image.load("static/images/tetrisvirus.png")
 tetrisvirus = pygame.transform.scale(tetrisvirus, (50, 50))
 tetrisvirus_rect = tetrisvirus.get_rect()
 tetrisvirus_y = (screen_height - tetrisvirus_rect.height) // 2
@@ -99,7 +100,7 @@ tetrisvirus_rect.topleft = [tetrisvirus_x, tetrisvirus_y]
 
 
 # load the player
-player = pygame.image.load("player.png")
+player = pygame.image.load("static/images/player.png")
 # sets how big the player is
 player_width = 75
 player_height = 75
@@ -243,10 +244,10 @@ def mini_game():
     positions = coordinatemaker(amount_bases)
 
     # Load images
-    alanine_img = pygame.image.load("alanine.png")
-    thymine_img = pygame.image.load("thymine.png")
-    cytosine_img = pygame.image.load("cytosine.png")
-    guanine_img = pygame.image.load("guanine.png")
+    alanine_img = pygame.image.load("static/images/alanine.png")
+    thymine_img = pygame.image.load("static/images/thymine.png")
+    cytosine_img = pygame.image.load("static/images/cytosine.png")
+    guanine_img = pygame.image.load("static/images/guanine.png")
 
     # Create rectangles for each pair
     alanine_rects = [
@@ -336,10 +337,14 @@ def mini_game():
 
                     # Check if all correct connections are made
                     if len(lines) == 6:
-                        display_img("dna.png", (700, 700), 150, 10, 800)
-                        display_img("dna_reverse.png", (700, 700), 150, 10, 800)
-                        display_img("dna.png", (700, 700), 150, 10, 800)
-                        display_img("dna_reverse.png", (700, 700), 150, 10, 1200)
+                        display_img("static/images/dna.png", (700, 700), 150, 10, 800)
+                        display_img(
+                            "static/images/dna_reverse.png", (700, 700), 150, 10, 800
+                        )
+                        display_img("static/images/dna.png", (700, 700), 150, 10, 800)
+                        display_img(
+                            "static/images/dna_reverse.png", (700, 700), 150, 10, 1200
+                        )
                         display_message(
                             "All correct connections are made! You did great!",
                             (255, 38, 178),
@@ -386,7 +391,9 @@ def rungame():
                 sys.exit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1 and player_rect.colliderect(info_rect):
-                    display_img("passwords.png", (500, 500), 250, 50, 2000)
+                    display_img(
+                        "static/images/passwords.png", (500, 500), 250, 50, 2000
+                    )
                 if event.button == 1 and player_rect.colliderect(virus_rect):
                     password = check_password()
                     # sets password: Depression
